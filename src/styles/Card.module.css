@@ -1,0 +1,25 @@
+.card {
+  margin-top: 1rem;
+  padding: 8px;
+  border: 0.015rem solid #c9c9c9;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #131313;
+}
+
+.card .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .info h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.card .info span {
+  font-size: 0.75rem;
+  color: #c1c1c1;
+}
