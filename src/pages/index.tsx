@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 import homeStyles from "@/styles/Home.module.css";
 import btnStyles from "@/styles/Button.module.css";
@@ -16,9 +16,9 @@ import { AddressContext } from "@/contexts/address";
 import { geistMono, geistSans } from "@/assets/fonts";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
 
-  const { address, setAddress } = useContext(AddressContext);
+  const { setAddress } = useContext(AddressContext);
 
   const [streetName, setStreetName] = useState("");
   const [states, setStates] = useState<State[]>([]);
@@ -30,10 +30,6 @@ export default function Home() {
   useEffect(() => {
     setStates(statesMock);
   }, []);
-
-  useEffect(() => {
-    if (address.cep) router.push("detalhes/" + address.cep);
-  }, [address.cep, router]);
 
   async function search() {
     if (!streetName.trim() || streetName.trim().length < 3) {
@@ -65,6 +61,7 @@ export default function Home() {
 
   function handleCepButton(selectedAddress: Address) {
     setAddress(selectedAddress);
+    router.push("detalhes/" + selectedAddress.cep);
   }
 
   return (

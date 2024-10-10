@@ -18,8 +18,8 @@ export default function Page() {
   });
 
   async function retrieveAddressIfMissing(cep: string) {
-    const { data } = await getAddressByCep(cep);
-    setAddress(data);
+    const response = await getAddressByCep(cep);
+    if (response?.data) setAddress(response.data);
   }
 
   return (
