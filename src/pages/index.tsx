@@ -13,7 +13,7 @@ import { Card } from "@/components/Card";
 
 import { AddressContext } from "@/contexts/address";
 
-import { geistMono, geistSans } from "./fonts";
+import { geistMono, geistSans } from "@/assets/fonts";
 
 export default function Home() {
   const router = useRouter()

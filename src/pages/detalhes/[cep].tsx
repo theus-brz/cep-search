@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { AddressContext } from "@/contexts/address";
 import { useEffect, useContext } from "react";
 
-import { geistMono, geistSans } from "../fonts";
+import { geistMono, geistSans } from "@/assets/fonts";
 
 import homeStyles from "@/styles/Home.module.css";
 import { getAddressByCep } from "@/services/getAddressByCep";
