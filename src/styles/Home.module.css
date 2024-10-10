@@ -40,16 +40,36 @@
   justify-content: space-between;
 }
 
-.main .selectors select {
+.main .selectors .selector-group {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
-.main .selectors select:last-child {
+.main .selectors .selector-group label {
+  color: #888;
+}
+
+.main .selectors .selector-group:last-child {
   margin-left: 1rem;
+}
+
+.main .form {
+  display: flex;
+}
+
+.main .form .input-address-group {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 .main .form button {
   margin-left: 0.5rem;
+}
+
+.main .form label {
+  color: #888;
 }
 
 .main .cards {

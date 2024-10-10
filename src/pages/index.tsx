@@ -81,32 +81,40 @@ export default function Home() {
           </span>
 
           <section className={homeStyles.selectors}>
-            <select
-              value={state.nome}
-              className={iptStyles.ipt}
-              onChange={(a) => handleStateSelection(a.target.value)}
-            >
-              <option value={""}>Selecione um estado</option>
-              {states.map((state: State) => (
-                <option key={state.nome} value={state.nome}>
-                  {state.nome}
-                </option>
-              ))}
-            </select>
+            <div className={homeStyles['selector-group']}>
+              <label htmlFor="states-selection">escolha um estado</label>
+              <select
+                id="states-selection"
+                value={state.nome}
+                className={iptStyles.ipt}
+                onChange={(a) => handleStateSelection(a.target.value)}
+              >
+                <option value="">nenhum estado selecionado</option>
+                {states.map((state: State) => (
+                  <option key={state.nome} value={state.nome}>
+                    {state.nome}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-            <select
-              disabled={!state.nome}
-              value={city.nome}
-              className={iptStyles.ipt}
-              onChange={(a) => handleCitySelection(a.target.value)}
-            >
-              <option>Selecione uma cidade</option>
-              {cities.map((city: City) => (
-                <option key={city.estado + city.nome} value={city.nome}>
-                  {city.nome}
-                </option>
-              ))}
-            </select>
+            <div className={homeStyles['selector-group']}>
+              <label htmlFor="cities-selection">escolha uma cidade</label>
+              <select
+                id="cities-selection"
+                disabled={!state.nome}
+                value={city.nome}
+                className={iptStyles.ipt}
+                onChange={(a) => handleCitySelection(a.target.value)}
+              >
+                <option value="">nenhuma cidade selecionada</option>
+                {cities.map((city: City) => (
+                  <option key={city.estado + city.nome} value={city.nome}>
+                    {city.nome}
+                  </option>
+                ))}
+              </select>
+            </div>
           </section>
 
           <form
@@ -116,13 +124,17 @@ export default function Home() {
               e.preventDefault();
             }}
           >
-            <input
-              name="cep"
-              disabled={!city.nome}
-              value={streetName}
-              className={iptStyles.ipt}
-              onChange={(a) => setStreetName(a.target.value)}
-            />
+            <div className={homeStyles['input-address-group']}>
+              <label>digite o nome apróximado da rua</label>
+              <input
+                name="cep"
+                disabled={!city.nome}
+                placeholder="rua doutor..."
+                value={streetName}
+                className={iptStyles.ipt}
+                onChange={(a) => setStreetName(a.target.value)}
+              />
+            </div>
             <button
               disabled={!streetName}
               type="submit"
